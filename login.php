@@ -4,6 +4,7 @@
 $signupEmailError = "";
 $signupPasswordError = "";
 $forgotEmailNotif = "";
+$signupEmail = "";
 if (isset ($_POST["forgotEmail"] ) ) {
 	if (empty($_POST["forgotEmail"])){
 		$forgotEmailNotif = "To reset your password, please enter your email.";
@@ -15,6 +16,8 @@ if (isset ($_POST["signupEmail"] ) ) {
 	//somebody PRESSED THE BUTTON
 	if (empty($_POST["signupEmail"])){
 		$signupEmailError = "Please enter your e-mail";		
+	} else {
+		$signupEmail = $_POST["signupEmail"];
 	}
 }
 if (isset ($_POST["signupPassword"] ) ) {
@@ -56,7 +59,7 @@ if (isset ($_POST["signupPassword"] ) ) {
 		<form method="POST">
 		<label>E-mail address</label>
 		<br>
-		<input name="signupEmail" type="email"><?php echo $signupEmailError; ?>
+		<input name="signupEmail" type="email" value="<?php echo $signupEmail; ?>"><?php echo $signupEmailError; ?>
 		<br><br>
 		<label>Password</label>
 		<br>
